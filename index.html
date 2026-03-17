@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS Technologies | Advanced CCTV & AI Surveillance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans">
+
+    <nav class="flex justify-between items-center px-6 md:px-10 py-6 sticky top-0 bg-slate-900/95 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="text-2xl font-bold tracking-tighter text-blue-500">NAS <span class="text-white">TECHNOLOGIES</span></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+            <a href="#home" class="hover:text-blue-500 transition">Home</a>
+            <a href="#services" class="hover:text-blue-500 transition">Services</a>
+            <a href="#solutions" class="hover:text-blue-500 transition">Solutions</a>
+            <a href="#contact" class="bg-blue-600 px-5 py-2 rounded-full hover:bg-blue-700 transition">Get Quote</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-gradient min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">Secure Your World with <br><span class="text-blue-500">AI Surveillance</span></h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-8">Premium CCTV, IP Cameras, and AMC Services for Chennai & Global Markets.</p>
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+            <a href="#services" class="bg-blue-600 px-8 py-4 rounded-md font-bold hover:shadow-lg hover:shadow-blue-500/30 transition text-center">Our Technology</a>
+            <a href="#contact" class="border border-slate-500 px-8 py-4 rounded-md font-bold hover:bg-white hover:text-slate-900 transition text-center">Request Audit</a>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 md:px-10 bg-slate-800/30">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Industrial Grade Security</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-blue-500 transition group">
+                <i class="fa-solid fa-building-shield text-4xl text-blue-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">Nuclear & High-Risk</h3>
+                <p class="text-slate-400 italic mb-2">Specialized Solutions</p>
+                <p class="text-slate-400 leading-relaxed">High-durability surveillance for sensitive industrial sites and nuclear facilities.</p>
+            </div>
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-blue-500 transition group">
+                <i class="fa-solid fa-server text-4xl text-blue-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">IP & NAS Storage</h3>
+                <p class="text-slate-400 italic mb-2">Network Excellence</p>
+                <p class="text-slate-400 leading-relaxed">Centralized video storage solutions with redundant backups and cloud access.</p>
+            </div>
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-blue-500 transition group">
+                <i class="fa-solid fa-wrench text-4xl text-blue-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">Comprehensive AMC</h3>
+                <p class="text-slate-400 italic mb-2">Maintenance</p>
+                <p class="text-slate-400 leading-relaxed">24/7 support and routine checkups to ensure your system never fails.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto bg-slate-800 p-8 md:p-12 rounded-3xl border border-slate-700 shadow-2xl">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold mb-2">Let's Secure Your Business</h2>
+                <p class="text-slate-400">Based in Chennai, serving worldwide. Get a quote today.</p>
+            </div>
+            <form class="grid md:grid-cols-2 gap-6">
+                <div class="flex flex-col">
+                    <label class="text-sm font-semibold mb-2 text-slate-400">Name</label>
+                    <input type="text" placeholder="John Doe" class="bg-slate-900 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-sm font-semibold mb-2 text-slate-400">Phone</label>
+                    <input type="tel" placeholder="+91 00000 00000" class="bg-slate-900 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label class="text-sm font-semibold mb-2 text-slate-400">Requirement</label>
+                    <textarea placeholder="Tell us about your project..." class="bg-slate-900 border border-slate-700 p-4 rounded-xl h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                </div>
+                <button class="md:col-span-2 bg-blue-600 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-slate-800 text-slate-500">
+        <div class="mb-6 text-xl font-bold text-slate-300">NAS TECHNOLOGIES</div>
+        <p class="text-sm mb-2">&copy; 2026 NAS Technologies. Nelson Manikam Road, Chennai.</p>
+        <p class="text-xs">Security Systems | Access Control | AMC | IT Infrastructure</p>
+    </footer>
+
+</body>
+</html>
