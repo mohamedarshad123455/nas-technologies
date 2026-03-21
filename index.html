@@ -7,14 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --gold: #D4AF37;
-            --deep-blue: #1e3a8a;
-        }
+        :root { --gold: #D4AF37; --deep-blue: #1e3a8a; }
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
-        .border-gold { border-color: var(--gold); }
-        
         .hero-section {
             background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
                         url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&q=80');
@@ -26,90 +21,70 @@
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
+    <!-- Navigation -->
     <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
-        <div class="flex items-center">
-            <img src="logo.png" alt="NAS Technologies Logo" class="h-12 w-auto">
-        </div>
+        <div class="flex items-center"><img src="logo.png" alt="NAS Technologies Logo" class="h-12 w-auto"></div>
         <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold">
             <a href="#home" class="hover:text-blue-700 transition">Home</a>
             <a href="#services" class="hover:text-blue-700 transition">Services</a>
-            <a href="#contact" class="bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-blue-900 transition">Get Quote</a>
+            <a href="#team" class="hover:text-blue-700 transition">Team</a>
+            <a href="#contact" class="bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-blue-900 transition text-xs">Get Quote</a>
         </div>
     </nav>
 
-    <section id="home" class="hero-section min-h-[80vh] flex flex-col justify-center items-center text-center px-6">
-        <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-blue-900">
-            Secure Your World with <br><span class="text-gold">AI Surveillance</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mb-8 font-medium">
-            Premium CCTV, IP Cameras, and AMC Services for Chennai & Global Markets.
-        </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-[70vh] flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-blue-900">Secure Your World with <br><span class="text-gold">AI Surveillance</span></h1>
         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-            <a href="#services" class="bg-gold text-white px-8 py-4 rounded-md font-bold hover:bg-yellow-600 transition shadow-lg">Our Technology</a>
-            <a href="#contact" class="border-2 border-blue-800 text-blue-800 px-8 py-4 rounded-md font-bold hover:bg-blue-800 hover:text-white transition">Request Audit</a>
+            <a href="#contact" class="bg-gold text-white px-8 py-4 rounded-md font-bold hover:bg-yellow-600 shadow-lg transition">Request Audit</a>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 md:px-10 bg-slate-50">
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-6 bg-white">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4 text-blue-900">Industrial Grade Security</h2>
-            <div class="h-1.5 w-20 bg-gold mx-auto rounded-full"></div>
+            <h2 class="text-3xl font-bold text-blue-900">Our Experts</h2>
+            <div class="h-1 w-16 bg-gold mx-auto mt-2"></div>
         </div>
-        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <div class="p-8 bg-white border border-slate-200 rounded-2xl hover:border-gold transition-all shadow-sm hover:shadow-xl group">
-                <i class="fa-solid fa-building-shield text-4xl text-blue-800 mb-6"></i>
-                <h3 class="text-xl font-bold mb-4 text-blue-900">Nuclear & High-Risk</h3>
-                <p class="text-gold font-semibold mb-2 italic">Specialized Solutions</p>
-                <p class="text-slate-600 leading-relaxed">High-durability surveillance for sensitive industrial sites and nuclear facilities.</p>
+        <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+            <!-- Team Member 1 -->
+            <div class="text-center group">
+                <div class="w-32 h-32 bg-slate-100 rounded-full mx-auto mb-4 border-2 border-gold p-1 overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Arshad&background=1e3a8a&color=fff" class="rounded-full">
+                </div>
+                <h3 class="font-bold text-lg">Mohamed Arshad</h3>
+                <p class="text-gold text-sm font-semibold uppercase">Founder & Lead Engineer</p>
             </div>
-            <div class="p-8 bg-white border border-slate-200 rounded-2xl hover:border-gold transition-all shadow-sm hover:shadow-xl group">
-                <i class="fa-solid fa-server text-4xl text-blue-800 mb-6"></i>
-                <h3 class="text-xl font-bold mb-4 text-blue-900">IP & NAS Storage</h3>
-                <p class="text-gold font-semibold mb-2 italic">Network Excellence</p>
-                <p class="text-slate-600 leading-relaxed">Centralized video storage solutions with redundant backups and cloud access.</p>
-            </div>
-            <div class="p-8 bg-white border border-slate-200 rounded-2xl hover:border-gold transition-all shadow-sm hover:shadow-xl group">
-                <i class="fa-solid fa-wrench text-4xl text-blue-800 mb-6"></i>
-                <h3 class="text-xl font-bold mb-4 text-blue-900">Comprehensive AMC</h3>
-                <p class="text-gold font-semibold mb-2 italic">Maintenance</p>
-                <p class="text-slate-600 leading-relaxed">24/7 support and routine checkups to ensure your system never fails.</p>
-            </div>
+            <!-- Add more members here -->
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 bg-white">
-        <div class="max-w-4xl mx-auto bg-blue-900 p-8 md:p-12 rounded-3xl shadow-2xl text-white">
-            <div class="mb-10 text-center">
-                <h2 class="text-3xl font-bold mb-2">Let's Secure Your Business</h2>
-                <p class="text-blue-200">Based in Chennai, serving worldwide. Get a quote today.</p>
-            </div>
-            <form class="grid md:grid-cols-2 gap-6">
-                <div class="flex flex-col">
-                    <label class="text-sm font-semibold mb-2">Name</label>
-                    <input type="text" placeholder="Your Name" class="bg-blue-800 border border-blue-700 p-4 rounded-xl focus:ring-2 focus:ring-gold outline-none">
-                </div>
-                <div class="flex flex-col">
-                    <label class="text-sm font-semibold mb-2">Phone</label>
-                    <input type="tel" placeholder="+91..." class="bg-blue-800 border border-blue-700 p-4 rounded-xl focus:ring-2 focus:ring-gold outline-none">
-                </div>
-                <div class="flex flex-col md:col-span-2">
-                    <label class="text-sm font-semibold mb-2">Message</label>
-                    <textarea placeholder="Tell us about your requirements..." class="bg-blue-800 border border-blue-700 p-4 rounded-xl h-32 focus:ring-2 focus:ring-gold outline-none"></textarea>
-                </div>
-                <button class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Send Message</button>
+    <!-- Contact Form (Connected to Google Sheets Placeholder) -->
+    <section id="contact" class="py-20 px-6 bg-slate-50">
+        <div class="max-w-4xl mx-auto bg-blue-900 p-10 rounded-3xl shadow-2xl text-white">
+            <h2 class="text-2xl font-bold mb-6">Get a Fast Quote</h2>
+            <form action="YOUR_SHEET_BEST_URL_HERE" method="POST" class="grid md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold" required>
+                <input type="email" name="email" placeholder="Email" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold" required>
+                <input type="tel" name="phone" placeholder="Phone" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold md:col-span-2" required>
+                <textarea name="message" placeholder="Requirement" class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none focus:border-gold"></textarea>
+                <button type="submit" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition">Submit to Excel</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-12 text-center bg-slate-50 border-t border-slate-200">
-        <div class="mb-4">
-             <img src="logo.png" alt="NAS Logo" class="h-10 mx-auto opacity-80">
+    <!-- Footer with Social Links -->
+    <footer class="py-12 bg-white border-t border-slate-100 text-center">
+        <div class="flex justify-center space-x-6 mb-8">
+            <a href="https://instagram.com/YOUR_PROFILE" class="text-2xl text-pink-600 hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/YOUR_PROFILE" class="text-2xl text-blue-600 hover:scale-110 transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://linkedin.com/in/YOUR_PROFILE" class="text-2xl text-blue-800 hover:scale-110 transition"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <p class="text-sm text-slate-500 mb-2">&copy; 2026 NAS Technologies. Nelson Manikam Road, Chennai.</p>
-        <div class="flex justify-center space-x-4 text-blue-800 font-bold text-xs uppercase tracking-tighter">
-            <span>Security</span> • <span>Access Control</span> • <span>AMC</span> • <span>IT Infra</span>
-        </div>
+        <p class="text-slate-500 text-sm">&copy; 2026 NAS Technologies. Chennai, India.</p>
     </footer>
+
+    <!-- LIVE CHAT SCRIPT (Tawk.to Example) -->
+    <!-- Sign up at tawk.to and paste your unique script here -->
 
 </body>
 </html>
