@@ -12,14 +12,13 @@
         .bg-gold { background-color: var(--gold); }
         html { scroll-behavior: smooth; }
         
-        /* Larger Circle for Social Media */
         .social-circle {
             width: 60px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #D4AF37; /* Gold border */
+            border: 2px solid #D4AF37;
             border-radius: 50%;
             transition: all 0.3s ease;
             font-size: 1.5rem;
@@ -29,13 +28,45 @@
             color: white !important;
             transform: scale(1.1);
         }
+
+        /* Success Pop-up Style */
+        #success-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 2px solid #D4AF37;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
+    <div id="overlay"></div>
+    <div id="success-modal">
+        <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-4"></i>
+        <h2 class="text-2xl font-bold text-blue-900 mb-2">Form Submitted Successfully!</h2>
+        <p class="text-slate-600 mb-6">Our team will contact you shortly regarding your security needs.</p>
+        <button onclick="closeModal()" class="bg-blue-900 text-white px-8 py-2 rounded-full font-bold hover:bg-blue-800 transition">Close</button>
+    </div>
+
     <nav class="flex justify-between items-center px-6 md:px-10 py-5 sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
         <div class="flex items-center">
-            <img src="logo.png" alt="NAS Technologies Logo" class="h-20 md:h-24 w-auto"> </div>
+            <img src="logo.png" alt="NAS Technologies Logo" class="h-20 md:h-24 w-auto">
+        </div>
         <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold">
             <a href="#home" class="hover:text-blue-700 transition">Home</a>
             <a href="#services" class="hover:text-blue-700 transition">Services</a>
@@ -89,43 +120,17 @@
     <section id="contact" class="py-24 px-6 bg-slate-50">
         <div class="max-w-4xl mx-auto bg-blue-900 p-10 rounded-3xl shadow-2xl text-white">
             <h2 class="text-2xl font-bold mb-8 text-center">Get a Fast Quote</h2>
-            <form action="https://api.sheetbest.com/sheets/c9692ef9-e038-4b51-b040-e193176960ef" method="POST" class="grid md:grid-cols-2 gap-6">
+            <form id="quoteForm" class="grid md:grid-cols-2 gap-6">
                 <input type="text" name="name" placeholder="Full Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
                 <input type="email" name="email" placeholder="Email Address" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
                 <input type="tel" name="phone" placeholder="Phone Number" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white md:col-span-2" required>
                 <textarea name="message" placeholder="Describe your security needs..." class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none focus:border-gold text-white"></textarea>
-                <button type="submit" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Submit to Excel</button>
+                <button type="submit" id="submitBtn" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Submit to Excel</button>
             </form>
         </div>
     </section>
 
     <footer class="py-16 bg-white border-t border-slate-100 text-center">
         <div class="flex justify-center space-x-8 mb-10">
-            <a href="#" class="social-circle text-pink-600">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#" class="social-circle text-blue-600">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="#" class="social-circle text-blue-800">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-        </div>
-        <img src="logo.png" alt="NAS Logo" class="h-16 mx-auto mb-4 opacity-50">
-        <p class="text-slate-400 text-xs">&copy; 2026 NAS Technologies. Nelson Manikam Road, Chennai.</p>
-    </footer>
-
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-
-</body>
-</html>
+            <a href="#" class="social-circle text-pink-600"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-circle text-blue-6
