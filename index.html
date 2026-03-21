@@ -10,20 +10,32 @@
         :root { --gold: #D4AF37; --deep-blue: #1e3a8a; }
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
-        .hero-section {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
-                        url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-        }
         html { scroll-behavior: smooth; }
+        
+        /* Larger Circle for Social Media */
+        .social-circle {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #D4AF37; /* Gold border */
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        .social-circle:hover {
+            background-color: var(--gold);
+            color: white !important;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
-    <!-- Navigation -->
-    <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
-        <div class="flex items-center"><img src="logo.png" alt="NAS Technologies Logo" class="h-12 w-auto"></div>
+    <nav class="flex justify-between items-center px-6 md:px-10 py-5 sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
+        <div class="flex items-center">
+            <img src="logo.png" alt="NAS Technologies Logo" class="h-20 md:h-24 w-auto"> </div>
         <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold">
             <a href="#home" class="hover:text-blue-700 transition">Home</a>
             <a href="#services" class="hover:text-blue-700 transition">Services</a>
@@ -32,59 +44,88 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section min-h-[70vh] flex flex-col justify-center items-center text-center px-6">
+    <section id="home" class="py-20 flex flex-col justify-center items-center text-center px-6 bg-slate-50">
         <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-blue-900">Secure Your World with <br><span class="text-gold">AI Surveillance</span></h1>
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-            <a href="#contact" class="bg-gold text-white px-8 py-4 rounded-md font-bold hover:bg-yellow-600 shadow-lg transition">Request Audit</a>
-        </div>
+        <a href="#contact" class="bg-gold text-white px-10 py-4 rounded-md font-bold hover:bg-yellow-600 shadow-lg transition">Request Audit</a>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-20 px-6 bg-white">
+    <section id="team" class="py-24 px-6 bg-white">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-blue-900">Our Experts</h2>
-            <div class="h-1 w-16 bg-gold mx-auto mt-2"></div>
+            <h2 class="text-4xl font-bold text-blue-900">Our Leadership Team</h2>
+            <div class="h-1.5 w-20 bg-gold mx-auto mt-4 rounded-full"></div>
         </div>
-        <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-            <!-- Team Member 1 -->
-            <div class="text-center group">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div class="text-center">
                 <div class="w-32 h-32 bg-slate-100 rounded-full mx-auto mb-4 border-2 border-gold p-1 overflow-hidden">
-                    <img src="https://ui-avatars.com/api/?name=Arshad&background=1e3a8a&color=fff" class="rounded-full">
+                    <img src="https://ui-avatars.com/api/?name=Shanaz&background=1e3a8a&color=fff" class="rounded-full">
                 </div>
-                <h3 class="font-bold text-lg">Mohamed Arshad</h3>
-                <p class="text-gold text-sm font-semibold uppercase">Founder & Lead Engineer</p>
+                <h3 class="font-bold text-lg">Shanaz</h3>
+                <p class="text-gold text-xs font-bold uppercase">CEO</p>
             </div>
-            <!-- Add more members here -->
+            <div class="text-center">
+                <div class="w-32 h-32 bg-slate-100 rounded-full mx-auto mb-4 border-2 border-gold p-1 overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Benazir&background=1e3a8a&color=fff" class="rounded-full">
+                </div>
+                <h3 class="font-bold text-lg">Benazir</h3>
+                <p class="text-gold text-xs font-bold uppercase">CFO</p>
+            </div>
+            <div class="text-center">
+                <div class="w-32 h-32 bg-slate-100 rounded-full mx-auto mb-4 border-2 border-gold p-1 overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Tariq&background=1e3a8a&color=fff" class="rounded-full">
+                </div>
+                <h3 class="font-bold text-lg">Tariq</h3>
+                <p class="text-gold text-xs font-bold uppercase">CTO</p>
+            </div>
+            <div class="text-center">
+                <div class="w-32 h-32 bg-slate-100 rounded-full mx-auto mb-4 border-2 border-gold p-1 overflow-hidden">
+                    <img src="https://ui-avatars.com/api/?name=Vadivelu&background=1e3a8a&color=fff" class="rounded-full">
+                </div>
+                <h3 class="font-bold text-lg">Vadivelu</h3>
+                <p class="text-gold text-xs font-bold uppercase">Senior Engineer Officer</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Form (Connected to Google Sheets Placeholder) -->
-    <section id="contact" class="py-20 px-6 bg-slate-50">
+    <section id="contact" class="py-24 px-6 bg-slate-50">
         <div class="max-w-4xl mx-auto bg-blue-900 p-10 rounded-3xl shadow-2xl text-white">
-            <h2 class="text-2xl font-bold mb-6">Get a Fast Quote</h2>
-            <form action="YOUR_SHEET_BEST_URL_HERE" method="POST" class="grid md:grid-cols-2 gap-4">
-                <input type="text" name="name" placeholder="Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold" required>
-                <input type="email" name="email" placeholder="Email" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold" required>
-                <input type="tel" name="phone" placeholder="Phone" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold md:col-span-2" required>
-                <textarea name="message" placeholder="Requirement" class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none focus:border-gold"></textarea>
-                <button type="submit" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition">Submit to Excel</button>
+            <h2 class="text-2xl font-bold mb-8 text-center">Get a Fast Quote</h2>
+            <form action="https://api.sheetbest.com/sheets/c9692ef9-e038-4b51-b040-e193176960ef" method="POST" class="grid md:grid-cols-2 gap-6">
+                <input type="text" name="name" placeholder="Full Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
+                <input type="email" name="email" placeholder="Email Address" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
+                <input type="tel" name="phone" placeholder="Phone Number" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white md:col-span-2" required>
+                <textarea name="message" placeholder="Describe your security needs..." class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none focus:border-gold text-white"></textarea>
+                <button type="submit" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Submit to Excel</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer with Social Links -->
-    <footer class="py-12 bg-white border-t border-slate-100 text-center">
-        <div class="flex justify-center space-x-6 mb-8">
-            <a href="https://instagram.com/YOUR_PROFILE" class="text-2xl text-pink-600 hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://facebook.com/YOUR_PROFILE" class="text-2xl text-blue-600 hover:scale-110 transition"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://linkedin.com/in/YOUR_PROFILE" class="text-2xl text-blue-800 hover:scale-110 transition"><i class="fa-brands fa-linkedin"></i></a>
+    <footer class="py-16 bg-white border-t border-slate-100 text-center">
+        <div class="flex justify-center space-x-8 mb-10">
+            <a href="#" class="social-circle text-pink-600">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="social-circle text-blue-600">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="social-circle text-blue-800">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
         </div>
-        <p class="text-slate-500 text-sm">&copy; 2026 NAS Technologies. Chennai, India.</p>
+        <img src="logo.png" alt="NAS Logo" class="h-16 mx-auto mb-4 opacity-50">
+        <p class="text-slate-400 text-xs">&copy; 2026 NAS Technologies. Nelson Manikam Road, Chennai.</p>
     </footer>
 
-    <!-- LIVE CHAT SCRIPT (Tawk.to Example) -->
-    <!-- Sign up at tawk.to and paste your unique script here -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 
 </body>
 </html>
