@@ -12,37 +12,42 @@
         .bg-gold { background-color: var(--gold); }
         html { scroll-behavior: smooth; }
         
-        /* Hero Section with Local Image */
-        .hero-section {
+        /* THE FIX: More visible image, cropped toward camera */
+        .hero-bg-image {
             position: relative;
-            background-image: url('hero-bg.jpg'); 
+            background-image: url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
-            background-position: center;
+            /* Focus on the top-right where the camera is */
+            background-position: top right; 
             background-attachment: fixed;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 80vh;
+            /* Make the image colors pop more */
+            filter: saturate(1.2); 
         }
 
-        .hero-section::before {
+        /* More transparent overlay so image is seen */
+        .hero-bg-image::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.75) 100%);
+            /* Thinner white overlay, especially on the right */
+            background: linear-gradient(to right, rgba(255,255,255,0.85), rgba(255,255,255,0.4));
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 2; }
+        .hero-content { position: relative; z-index: 2; filter: saturate(1); } /* reset text saturation */
 
-        .team-card {
-            transition: all 0.3s ease;
-            border: 1px solid #f1f5f9;
+        .social-circle {
+            width: 65px; height: 65px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid #D4AF37; border-radius: 50%;
+            transition: all 0.3s ease; font-size: 1.8rem;
+            background: white; text-decoration: none;
         }
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--gold);
+        .social-circle:hover {
+            background-color: var(--gold);
+            color: white !important;
+            transform: scale(1.1);
         }
 
         #success-modal {
@@ -57,15 +62,6 @@
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999;
         }
-
-        .social-circle {
-            width: 60px; height: 60px;
-            display: flex; align-items: center; justify-content: center;
-            border: 2px solid #D4AF37; border-radius: 50%;
-            transition: all 0.3s ease; font-size: 1.5rem;
-            background: white;
-        }
-        .social-circle:hover { background: var(--gold); color: white !important; transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans">
@@ -75,12 +71,12 @@
         <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-4"></i>
         <h2 class="text-2xl font-bold text-blue-900 mb-2">Success!</h2>
         <p class="text-slate-600 mb-6">Your quote request has been sent to our team.</p>
-        <button onclick="closeModal()" class="bg-blue-900 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-800 transition">Great</button>
+        <button onclick="closeModal()" class="bg-blue-900 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-800 transition shadow-md">Great</button>
     </div>
 
-    <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
+    <nav class="flex justify-between items-center px-6 md:px-10 py-5 sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
         <div class="flex items-center">
-            <img src="logo.png" alt="NAS Technologies Logo" class="h-14 md:h-18 w-auto">
+            <img src="logo.png" alt="NAS Technologies Logo" class="h-16 md:h-20 w-auto">
         </div>
         <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold">
             <a href="#home" class="hover:text-blue-700 transition">Home</a>
@@ -91,18 +87,14 @@
         </div>
     </nav>
 
-    <section id="home" class="hero-section text-center px-6">
-        <div class="hero-content max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-blue-900 leading-tight">
+    
+<section id="home" class="hero-bg-image flex flex-col justify-center items-center text-center px-6">
+        <div class="hero-content py-20">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-blue-900">
                 Secure Your World with <br><span class="text-gold">AI Surveillance</span>
             </h1>
-            <p class="text-slate-700 max-w-2xl mx-auto mb-10 text-xl font-medium">
-                Premier Security Infrastructure & IT Solutions in Chennai. Trusted for High-Risk Commercial Property Protection.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-gold text-white px-12 py-5 rounded-md font-bold hover:bg-yellow-600 shadow-2xl transition-all transform hover:-translate-y-1">Request Free Audit</a>
-                <a href="#services" class="bg-blue-900 text-white px-12 py-5 rounded-md font-bold hover:bg-blue-800 shadow-xl transition-all transform hover:-translate-y-1">Explore Services</a>
-            </div>
+            <p class="text-slate-700 max-w-2xl mb-10 text-xl font-semibold italic">Leading Security Infrastructure in Chennai & Global Markets.</p>
+            <a href="#contact" class="bg-gold text-white px-12 py-5 rounded-md font-bold hover:bg-yellow-600 shadow-2xl transition-all transform hover:scale-105 inline-block">Request Audit</a>
         </div>
     </section>
 
@@ -115,97 +107,77 @@
             <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
                 <i class="fa-solid fa-shield-halved text-4xl text-blue-800 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 text-blue-900">AI Surveillance</h3>
-                <p class="text-slate-600">Smart cameras with face recognition and automated alerts.</p>
+                <p class="text-slate-600">Smart cameras with face recognition, motion tracking, and automated alerts.</p>
             </div>
             <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
                 <i class="fa-solid fa-network-wired text-4xl text-blue-800 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 text-blue-900">IT Infrastructure</h3>
-                <p class="text-slate-600">Complete networking and secure server management.</p>
+                <p class="text-slate-600">Complete networking, server management, and IP storage solutions.</p>
             </div>
             <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
                 <i class="fa-solid fa-tools text-4xl text-blue-800 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 text-blue-900">AMC Maintenance</h3>
-                <p class="text-slate-600">Annual contracts to keep hardware running 24/7.</p>
+                <p class="text-slate-600">Annual Maintenance Contracts to keep your hardware running 24/7.</p>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto bg-blue-900 rounded-3xl p-10 text-white text-center shadow-xl">
+            <h3 class="text-2xl font-bold mb-6">Specialized in Commercial Property Security</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-blue-800 px-5 py-2 rounded-full border border-gold/40 text-sm">4 Premium Shops</span>
+                <span class="bg-blue-800 px-5 py-2 rounded-full border border-gold/40 text-sm">Lobby Cafe</span>
+                <span class="bg-blue-800 px-5 py-2 rounded-full border border-gold/40 text-sm">Luxury Spa</span>
+                <span class="bg-blue-800 px-5 py-2 rounded-full border border-gold/40 text-sm">Restaurant & Shisha</span>
+                <span class="bg-blue-800 px-5 py-2 rounded-full border border-gold/40 text-sm">Travel Desk</span>
             </div>
         </div>
     </section>
 
-    <section id="team" class="py-24 px-6 bg-slate-50">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-blue-900">Our Leadership Team</h2>
-            <div class="h-1.5 w-20 bg-gold mx-auto mt-4 rounded-full"></div>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-user-tie text-2xl text-blue-900"></i>
-                </div>
-                <h3 class="font-bold">Shanaz</h3>
-                <p class="text-gold text-xs font-bold uppercase">CEO</p>
-            </div>
-            <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-user-gear text-2xl text-blue-900"></i>
-                </div>
-                <h3 class="font-bold">Benazir</h3>
-                <p class="text-gold text-xs font-bold uppercase">CFO</p>
-            </div>
-            <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-microchip text-2xl text-blue-900"></i>
-                </div>
-                <h3 class="font-bold">Tariq</h3>
-                <p class="text-gold text-xs font-bold uppercase">CTO</p>
-            </div>
-            <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-screwdriver-wrench text-2xl text-blue-900"></i>
-                </div>
-                <h3 class="font-bold">Vadivelu</h3>
-                <p class="text-gold text-xs font-bold uppercase">Engineer Officer</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="location" class="py-24 px-6 bg-white">
+    <section id="location" class="py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-bold text-blue-900 mb-6">Visit Our Office</h2>
                 <div class="space-y-6">
                     <div class="flex items-start space-x-4">
-                        <i class="fa-solid fa-location-dot text-gold text-2xl"></i>
-                        <p class="text-slate-700 text-lg">Plot no 56, Second Avenue, Sea Shore Town, J Nagar, Chennai, TN 600119</p>
+                        <i class="fa-solid fa-location-dot text-gold text-2xl mt-1"></i>
+                        <p class="text-slate-700 text-lg font-medium">Plot no 56, Second Avenue,<br>Sea Shore Town, J Nagar, Chennai,<br>Tamil Nadu 600119</p>
                     </div>
                     <div class="flex items-start space-x-4">
-                        <i class="fa-solid fa-clock text-gold text-2xl"></i>
-                        <p class="text-slate-700 text-lg font-bold">Mon - Sat: 9:30 AM - 7:00 PM</p>
+                        <i class="fa-solid fa-clock text-gold text-2xl mt-1"></i>
+                        <p class="text-slate-700 text-lg font-medium">Mon - Sat: 9:30 AM - 7:00 PM<br>Emergency Support: 24/7 Available</p>
                     </div>
                 </div>
             </div>
-            <div class="h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-50">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.384666355474!2d80.2458448746034!3d12.947214515383321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d0f666f076f%3A0x6a6b5779c13e5871!2sPanaiyur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1709736000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.632296765416!2d80.24838407584144!3d12.9312675157642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d19a1961609%3A0x6b803274f884a44b!2sSea%20Shore%20Town%2C%20Panaiyur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1710595000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 bg-slate-50">
+    <section id="contact" class="py-24 px-6 bg-white">
         <div class="max-w-4xl mx-auto bg-blue-900 p-10 rounded-3xl shadow-2xl text-white">
             <h2 class="text-2xl font-bold mb-8 text-center uppercase tracking-widest">Get a Fast Quote</h2>
             <form id="quoteForm" class="grid md:grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="Full Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white" required>
-                <input type="email" name="email" placeholder="Email Address" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white" required>
-                <input type="tel" name="phone" placeholder="Phone Number" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white md:col-span-2" required>
-                <textarea name="message" placeholder="Describe your security needs..." class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none text-white"></textarea>
+                <input type="text" name="name" placeholder="Full Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
+                <input type="email" name="email" placeholder="Email Address" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white" required>
+                <input type="tel" name="phone" placeholder="Phone Number" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none focus:border-gold text-white md:col-span-2" required>
+                <textarea name="message" placeholder="Describe your security needs..." class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none focus:border-gold text-white"></textarea>
                 <button type="submit" id="submitBtn" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Submit Request</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-16 bg-white border-t border-slate-200 text-center">
+    <footer class="py-16 bg-white border-t border-slate-100 text-center">
         <div class="flex justify-center space-x-10 mb-10">
-            <a href="https://www.instagram.com/nas_tecnologies/" target="_blank" class="social-circle text-pink-600"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100093822124931" target="_blank" class="social-circle text-blue-600"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/company/nas-technologies-india/" target="_blank" class="social-circle text-blue-800"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/nas_tecnologies/" target="_blank" class="social-circle text-pink-600">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100093822124931" target="_blank" class="social-circle text-blue-600">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/nas-technologies-india/?viewAsMember=true" target="_blank" class="social-circle text-blue-800">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
         </div>
         <img src="logo.png" alt="NAS Logo" class="h-16 mx-auto mb-4 opacity-50">
         <p class="text-slate-400 text-xs tracking-widest uppercase font-bold">© 2026 NAS Technologies. Sea Shore Town, Chennai.</p>
