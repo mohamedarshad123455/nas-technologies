@@ -12,7 +12,7 @@
         .bg-gold { background-color: var(--gold); }
         html { scroll-behavior: smooth; }
         
-        /* Updated to use your local GitHub image */
+        /* Hero Section with Local Image */
         .hero-section {
             position: relative;
             background-image: url('hero-bg.jpg'); 
@@ -44,11 +44,41 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             border-color: var(--gold);
         }
+
+        #success-modal {
+            display: none; position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); z-index: 1000;
+            background: white; padding: 2.5rem; border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center; border: 3px solid #D4AF37;
+            width: 90%; max-width: 400px;
+        }
+        #overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999;
+        }
+
+        .social-circle {
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid #D4AF37; border-radius: 50%;
+            transition: all 0.3s ease; font-size: 1.5rem;
+            background: white;
+        }
+        .social-circle:hover { background: var(--gold); color: white !important; transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
-    <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
+    <div id="overlay"></div>
+    <div id="success-modal">
+        <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-4"></i>
+        <h2 class="text-2xl font-bold text-blue-900 mb-2">Success!</h2>
+        <p class="text-slate-600 mb-6">Your quote request has been sent to our team.</p>
+        <button onclick="closeModal()" class="bg-blue-900 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-800 transition">Great</button>
+    </div>
+
+    <nav class="flex justify-between items-center px-6 md:px-10 py-4 sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
         <div class="flex items-center">
             <img src="logo.png" alt="NAS Technologies Logo" class="h-14 md:h-18 w-auto">
         </div>
@@ -76,7 +106,30 @@
         </div>
     </section>
 
-    <!-- RESTORED TEAM SECTION -->
+    <section id="services" class="py-24 px-6 md:px-10 bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-blue-900">Our Services</h2>
+            <div class="h-1.5 w-20 bg-gold mx-auto mt-4 rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+            <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
+                <i class="fa-solid fa-shield-halved text-4xl text-blue-800 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-blue-900">AI Surveillance</h3>
+                <p class="text-slate-600">Smart cameras with face recognition and automated alerts.</p>
+            </div>
+            <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
+                <i class="fa-solid fa-network-wired text-4xl text-blue-800 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-blue-900">IT Infrastructure</h3>
+                <p class="text-slate-600">Complete networking and secure server management.</p>
+            </div>
+            <div class="p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-gold transition-all shadow-sm">
+                <i class="fa-solid fa-tools text-4xl text-blue-800 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 text-blue-900">AMC Maintenance</h3>
+                <p class="text-slate-600">Annual contracts to keep hardware running 24/7.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="team" class="py-24 px-6 bg-slate-50">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-blue-900">Our Leadership Team</h2>
@@ -84,37 +137,114 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-24 h-24 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-user-tie text-3xl text-blue-900"></i>
+                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <i class="fa-solid fa-user-tie text-2xl text-blue-900"></i>
                 </div>
-                <h3 class="font-bold text-lg">Shanaz</h3>
-                <p class="text-gold text-xs font-bold uppercase tracking-widest">CEO</p>
+                <h3 class="font-bold">Shanaz</h3>
+                <p class="text-gold text-xs font-bold uppercase">CEO</p>
             </div>
             <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-24 h-24 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-user-gear text-3xl text-blue-900"></i>
+                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <i class="fa-solid fa-user-gear text-2xl text-blue-900"></i>
                 </div>
-                <h3 class="font-bold text-lg">Benazir</h3>
-                <p class="text-gold text-xs font-bold uppercase tracking-widest">CFO</p>
+                <h3 class="font-bold">Benazir</h3>
+                <p class="text-gold text-xs font-bold uppercase">CFO</p>
             </div>
             <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-24 h-24 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-microchip text-3xl text-blue-900"></i>
+                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <i class="fa-solid fa-microchip text-2xl text-blue-900"></i>
                 </div>
-                <h3 class="font-bold text-lg">Tariq</h3>
-                <p class="text-gold text-xs font-bold uppercase tracking-widest">CTO</p>
+                <h3 class="font-bold">Tariq</h3>
+                <p class="text-gold text-xs font-bold uppercase">CTO</p>
             </div>
             <div class="team-card bg-white p-6 rounded-2xl text-center">
-                <div class="w-24 h-24 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa-solid fa-screwdriver-wrench text-3xl text-blue-900"></i>
+                <div class="w-20 h-20 bg-blue-50 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <i class="fa-solid fa-screwdriver-wrench text-2xl text-blue-900"></i>
                 </div>
-                <h3 class="font-bold text-lg">Vadivelu</h3>
-                <p class="text-gold text-xs font-bold uppercase tracking-tighter">Senior Engineer Officer</p>
+                <h3 class="font-bold">Vadivelu</h3>
+                <p class="text-gold text-xs font-bold uppercase">Engineer Officer</p>
             </div>
         </div>
     </section>
 
-    <!-- Services, Location and Footer follow as before... -->
+    <section id="location" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-blue-900 mb-6">Visit Our Office</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <i class="fa-solid fa-location-dot text-gold text-2xl"></i>
+                        <p class="text-slate-700 text-lg">Plot no 56, Second Avenue, Sea Shore Town, J Nagar, Chennai, TN 600119</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fa-solid fa-clock text-gold text-2xl"></i>
+                        <p class="text-slate-700 text-lg font-bold">Mon - Sat: 9:30 AM - 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-50">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.384666355474!2d80.2458448746034!3d12.947214515383321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d0f666f076f%3A0x6a6b5779c13e5871!2sPanaiyur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1709736000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
+    <section id="contact" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-4xl mx-auto bg-blue-900 p-10 rounded-3xl shadow-2xl text-white">
+            <h2 class="text-2xl font-bold mb-8 text-center uppercase tracking-widest">Get a Fast Quote</h2>
+            <form id="quoteForm" class="grid md:grid-cols-2 gap-6">
+                <input type="text" name="name" placeholder="Full Name" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white" required>
+                <input type="email" name="email" placeholder="Email Address" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white" required>
+                <input type="tel" name="phone" placeholder="Phone Number" class="bg-blue-800 p-4 rounded-xl border border-blue-700 outline-none text-white md:col-span-2" required>
+                <textarea name="message" placeholder="Describe your security needs..." class="bg-blue-800 p-4 rounded-xl border border-blue-700 h-32 md:col-span-2 outline-none text-white"></textarea>
+                <button type="submit" id="submitBtn" class="md:col-span-2 bg-gold py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-600 transition shadow-lg">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-white border-t border-slate-200 text-center">
+        <div class="flex justify-center space-x-10 mb-10">
+            <a href="https://www.instagram.com/nas_tecnologies/" target="_blank" class="social-circle text-pink-600"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100093822124931" target="_blank" class="social-circle text-blue-600"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/nas-technologies-india/" target="_blank" class="social-circle text-blue-800"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <img src="logo.png" alt="NAS Logo" class="h-16 mx-auto mb-4 opacity-50">
+        <p class="text-slate-400 text-xs tracking-widest uppercase font-bold">© 2026 NAS Technologies. Sea Shore Town, Chennai.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('quoteForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const modal = document.getElementById('success-modal');
+        const overlay = document.getElementById('overlay');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            fetch('https://api.sheetbest.com/sheets/c9692ef9-e038-4b51-b040-e193176960ef', {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(new FormData(form)))
+            })
+            .then(r => {
+                modal.style.display = 'block';
+                overlay.style.display = 'block';
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Request";
+            })
+            .catch(e => {
+                alert("Error submitting. Please try again.");
+                submitBtn.disabled = false;
+            });
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
